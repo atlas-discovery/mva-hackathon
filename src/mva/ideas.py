@@ -12,7 +12,7 @@ from mva import agent, tools
 SYSTEM = """You propose candidate drugs for a mechanistic lever in a rare disease.
 Given one lever and the patient's disease and gene, list up to 5 candidate drugs that act on it.
 Prefer drugs approved for any indication. You may use the database tools to look for candidates.
-Return a single ```json block: a list of {"drug": generic name, "why": one sentence, "caveat": one sentence}.
+Keep any text outside the JSON to two sentences. Return a single ```json block: a list of {"drug": generic name, "why": one sentence, "caveat": one sentence}.
 Do not claim efficacy; say what would need to be shown."""
 
 

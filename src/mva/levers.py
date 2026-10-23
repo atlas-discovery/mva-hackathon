@@ -15,7 +15,7 @@ Rules:
 - Ground every lever in a specific finding on the card (a variant, its type, a phenotype term).
 - State what is NOT known (for example variant phase, protein level) rather than assuming it.
 - Do not name drugs here; levers only.
-Return a single ```json block: a list of objects with keys
+Keep any text outside the JSON to two sentences. Return a single ```json block: a list of objects with keys
 "name", "type" (e.g. "restore function", "stabilise protein", "bypass pathway"), "rationale",
 "grounding" (list of card findings used), "evidence" (list of short strings naming tool results you used),
 "unknowns" (list of strings), "search_terms" (list of 2-4 words for finding drugs)."""

@@ -41,3 +41,19 @@ def test_levers_and_ideas_pipeline(monkeypatch):
     rows = ideas.propose(lv, "dis", "GENE", client=FakeClient('```json\n[{"drug": "drugx", "why": "w", "caveat": "c"}]```'))
     assert rows[0]["checks"]["chembl_max_phase"] == 4
     assert "| L1 | drugx | yes | 2 | 7 | 7 | w | c |" in ideas.to_markdown(rows)
+
+
+def test_refusal_raises_clear_error():
+    import pytest
+
+    class Refuser:
+        messages = None
+
+        def __init__(self):
+            self.messages = self
+
+        def create(self, **kw):
+            return NS(stop_reason="refusal", content=[], stop_details=NS(category="bio"))
+
+    with pytest.raises(agent.RefusalError, match="bio"):
+        agent.run("s", "u", client=Refuser())

@@ -30,6 +30,10 @@ class Variant:
     exon: str
     mane_select: str
     kind: str  # "lof" | "missense" | "other"
+    max_af: str = ""
+    clin_sig: str = ""
+    sift: str = ""
+    polyphen: str = ""
 
     def as_dict(self) -> dict:
         return asdict(self)
@@ -78,7 +82,8 @@ def read_variants(vcf: str, panel: set[str] | None = None, pass_only: bool = Tru
                 continue
             out.append(Variant(chrom, int(pos), ref, alt, gt, ad, gene, get("Feature"), get("HGVSc"),
                                get("HGVSp"), get("Consequence"), impact, get("EXON"), get("MANE_SELECT"),
-                               _kind(get("Consequence"))))
+                               _kind(get("Consequence")), get("MAX_AF"), get("CLIN_SIG"), get("SIFT"),
+                               get("PolyPhen")))
     # keep one record per variant/gene, preferring the MANE Select transcript
     best: dict[tuple, Variant] = {}
     for v in out:
