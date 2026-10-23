@@ -1,0 +1,13 @@
+# Genes scanned by default. The three established MVA genes, then core
+# spindle-checkpoint / mitotic-fidelity genes relevant to the phenotype.
+BUB1B
+CEP57
+TRIP13
+BUB1
+BUB3
+MAD1L1
+MAD2L1
+CDC20
+ANAPC1
+TTK
+AURKB
