@@ -78,14 +78,6 @@ See [docs/METHODS.md](docs/METHODS.md) for the design and its limits.
 `ideas` step on `configs/report_levers.json`. The synthetic variants are invented, so the example shows
 the shape of the outputs, not findings about any patient.
 
-## AI use
-
-Levers and ideas come from Anthropic's Claude via the Anthropic API (default model `claude-opus-5-5`).
-When the API's safety classifier declines a drug-related request, the API retries it on the model it
-recommends for that category (server-side fallback, `MVA_FALLBACK=1`); the model that answered is
-printed to stderr. Plan or tier and data-handling terms: **TODO (team): fill in before making public.**
-Claude Code was also used as a coding assistant while building this repository.
-
 ## Tests
 
 ```bash
