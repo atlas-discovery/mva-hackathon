@@ -10,11 +10,6 @@ It takes one patient's annotated whole-genome VCF and phenotype document and pro
 The levers and ideas steps are LLM-driven (Claude with database tools). The checks on each drug
 (approval, applications, trials, literature counts) come from the databases, not from the model.
 
-> **Scope.** This repository is the data-analysis and lever-identification layer plus a simple
-> candidate lookup. It is not the full multi-stage research pipeline used to write the team's
-> submission report; that pipeline is not released here. Results from this repo are a starting
-> list of ideas, not a ranked or scored evidence review.
-
 ## Patient data
 
 No patient data is in this repository, and none should ever be committed. The hackathon terms
