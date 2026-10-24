@@ -1,0 +1,99 @@
+[
+ {
+  "name": "Increase total BUB1B (BubR1) expression from the missense allele",
+  "type": "restore function",
+  "rationale": "Loss of both BUB1B copies causes mosaic variegated aneuploidy (MVA1) by lowering BubR1 below the level the mitotic checkpoint needs. Recessive disease from a hypomorphic gene suggests that a modest rise in total BubR1 could help. If the variants are on different chromosomes, the p.Gly900Arg allele is probably the main source of protein, because the p.Arg400Ter transcript is likely degraded. A published study (Elife 2016) found that strengthening BubR1 protects against aneuploidy and cancer.",
+  "grounding": [
+   "BUB1B c.2698G>A p.Gly900Arg (missense, het 0/1)",
+   "BUB1B c.1198C>T p.Arg400Ter (stop_gained, het 0/1)",
+   "Both variants heterozygous in the same gene, which fits recessive disease if they are on different chromosomes"
+  ],
+  "evidence": [
+   "Open Targets: BUB1B top diseases are mosaic variegated aneuploidy syndrome (0.815) and MVA1 (0.794)",
+   "PubMed 15475955: biallelic BUB1B mutations cause constitutional aneuploidy and cancer predisposition",
+   "PubMed 27528194: BubR1 changes that strengthen mitotic surveillance protect against aneuploidy and cancer"
+  ],
+  "unknowns": [
+   "Phase not determined: read-backed or parental testing is needed to confirm the variants are on different chromosomes",
+   "No phenotype terms on the card to confirm an MVA-type presentation",
+   "BubR1 protein level in patient cells has not been measured",
+   "Whether the p.Gly900Arg protein keeps any function",
+   "Transcript and MANE IDs on the card look like placeholders, so the HGVS annotation needs checking"
+  ],
+  "search_terms": [
+   "BUB1B",
+   "BubR1 expression",
+   "mitotic checkpoint"
+  ]
+ },
+ {
+  "name": "Read through the p.Arg400Ter premature stop codon",
+  "type": "readthrough",
+  "rationale": "p.Arg400Ter is in exon 10 of 23, well before the last exon, so its transcript is expected to be degraded by nonsense-mediated decay (NMD). Readthrough, possibly combined with NMD inhibition, could restore full-length BubR1 from this allele. The stop codon (CGA>TGA, i.e. UGA) sits between the N-terminal/KNL1-binding region and the kinase domain. A truncated protein would lack the kinase domain (residues 766-1050), so only full-length readthrough product would be useful.",
+  "grounding": [
+   "BUB1B c.1198C>T p.Arg400Ter, stop_gained, HIGH impact, exon 10/23"
+  ],
+  "evidence": [
+   "UniProt O60566: 1050 aa; BUB1 N-terminal domain 62-226; KNL1-binding region 152-185; disordered regions 368-393 and 456-480; kinase domain 766-1050"
+  ],
+  "unknowns": [
+   "Whether NMD actually happens has not been tested (no RNA data)",
+   "Which amino acid gets inserted at codon 400 during readthrough, and whether that protein works",
+   "How efficient readthrough is in this sequence context",
+   "Benefit depends on the variants being on different chromosomes"
+  ],
+  "search_terms": [
+   "nonsense readthrough",
+   "premature stop codon",
+   "NMD inhibition"
+  ]
+ },
+ {
+  "name": "Stabilise the p.Gly900Arg BubR1 protein, including through its acetylation state",
+  "type": "stabilise protein",
+  "rationale": "Gly900Arg lies inside the kinase(-like) domain (residues 766-1050). A glycine-to-arginine change there could misfold the protein and speed its breakdown. Published work shows BubR1 acetylation, regulated by the deacetylase SIRT2 and linked to Aurora B, affects BubR1 checkpoint function and possibly stability. Raising BubR1 acetylation, or slowing its degradation by the ubiquitin-proteasome system, might keep more of the mutant protein around.",
+  "grounding": [
+   "BUB1B c.2698G>A p.Gly900Arg, missense, MODERATE impact, exon 20/23"
+  ],
+  "evidence": [
+   "UniProt O60566: residue 900 is inside the protein kinase domain (766-1050)",
+   "PubMed 39490401: BubR1 and SIRT2 review (aneuploidy, ageing, cancer)",
+   "PubMed 29067790: Sirt2-BubR1 acetylation pathway affects oocyte quality",
+   "PubMed 41533580: Aurora B role in BubR1 acetylation"
+  ],
+  "unknowns": [
+   "Whether Gly900Arg destabilises the protein or disrupts it some other way (no SIFT/PolyPhen scores, no structural or functional data)",
+   "Whether the acetylation and degradation findings from mouse and oocyte studies apply to human somatic cells",
+   "Whether the lysines that get acetylated are still present and modifiable in this mutant",
+   "Benefit depends on the variants being on different chromosomes"
+  ],
+  "search_terms": [
+   "BubR1 acetylation",
+   "SIRT2",
+   "protein stabilisation"
+  ]
+ },
+ {
+  "name": "Compensate downstream in the mitotic checkpoint / APC/C-Cdc20 axis",
+  "type": "bypass pathway",
+  "rationale": "BubR1 works with MAD2 to hold back APC/C-Cdc20 until all chromosomes are attached to the spindle. When BubR1 is low, anaphase starts too early and chromosomes are lost or gained. Partly slowing APC/C-Cdc20, or strengthening MAD2's inhibitory signal or kinetochore attachment through partners such as PLK1, BUB1 and CENPE, could make up for weak checkpoint signalling. The margin is narrow, because blocking mitosis too strongly is toxic to dividing cells.",
+  "grounding": [
+   "Biallelic-candidate BUB1B variants (p.Arg400Ter + p.Gly900Arg) predicted to reduce checkpoint function"
+  ],
+  "evidence": [
+   "Reactome O60566: inactivation of APC/C by direct inhibition; MAD2 signal amplification from unattached kinetochores; separation of sister chromatids",
+   "STRING BUB1B partners: MAD2L1, ANAPC1/2/5, CDC16, BUB1, KNL1, PLK1, CENPE (all 0.999)"
+  ],
+  "unknowns": [
+   "No direct evidence found that reducing APC/C-Cdc20 activity rescues BubR1 deficiency (targeted PubMed search returned nothing)",
+   "Safe dosing range for long-term use in a child",
+   "Which tissues and phenotypes in this patient depend on the checkpoint; no phenotype terms on the card",
+   "Published work suggests some BubR1 effects (e.g. microcephaly, heart development) may not depend on the checkpoint and would not be fixed this way (PubMed 37900274, 40055864)"
+  ],
+  "search_terms": [
+   "APC/C inhibitor",
+   "Cdc20",
+   "spindle assembly checkpoint"
+  ]
+ }
+]

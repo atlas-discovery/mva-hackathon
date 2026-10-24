@@ -32,6 +32,15 @@ For each lever the model proposes up to five drugs. For every drug the code then
 ClinicalTrials.gov (trials matching drug and disease) and PubMed (papers mentioning drug and gene).
 These are facts about the drug, not a score and not evidence that it works for this patient.
 
+## Reproducibility
+
+- Database calls are cached in `.cache/`; with the cache the database facts repeat exactly.
+- The model steps are not deterministic and the model does not accept a temperature setting. To limit
+  drift, the levers prompt lists the generic lever types to consider, and `configs/report_levers.json`
+  fixes the three levers used in the team's report so the `ideas` step can be run from a stable input.
+- Steps that need the real dataset (VEP annotation, Exomiser) are run outside this repository; the inputs
+  they produce are described in the README.
+
 ## Limits
 
 - No ranking, no scoring, no adversarial review and no systematic literature review. The table is a

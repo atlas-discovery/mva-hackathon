@@ -1,0 +1,228 @@
+[
+ {
+  "lever": "Stabilise residual BUBR1 protein through NAD+/SIRT2 regulation",
+  "drug": "Nicotinamide riboside",
+  "why": "Oral NAD+ precursor that raised NAD+ and, via SIRT2-dependent deacetylation of BUBR1 K668, increased BUBR1 levels and lifespan in BubR1-hypomorphic mice (North et al. 2014), the direct precedent for this lever.",
+  "caveat": "A dietary supplement rather than an approved drug, with no MVA data; one would first need to show the patient's missense BUBR1 protein is expressed, is destabilised by turnover, and is restored by NAD+ repletion in patient cells before any clinical claim.",
+  "checks": {
+   "chembl_max_phase": 3.0,
+   "mechanisms": [],
+   "fda_applications": 0,
+   "trials_with_disease": 0,
+   "trials_any": 128,
+   "pubmed_drug_and_gene": 0
+  }
+ },
+ {
+  "lever": "Stabilise residual BUBR1 protein through NAD+/SIRT2 regulation",
+  "drug": "Nicotinamide mononucleotide",
+  "why": "Alternative NAD+ precursor entering the salvage pathway downstream of NAMPT, tested in human trials with good tolerability, offering a second route to raise NAD+ for SIRT2-mediated BUBR1 stabilisation.",
+  "caveat": "Unapproved supplement with contested cellular uptake and no evidence of effect on BUBR1 in humans; patient-cell pharmacodynamics (NAD+ rise plus BUBR1 protein increase) would have to be demonstrated.",
+  "checks": {
+   "chembl_max_phase": null,
+   "mechanisms": [],
+   "fda_applications": 0,
+   "trials_with_disease": 0,
+   "trials_any": 51,
+   "pubmed_drug_and_gene": 1
+  }
+ },
+ {
+  "lever": "Stabilise residual BUBR1 protein through NAD+/SIRT2 regulation",
+  "drug": "Niacin",
+  "why": "FDA-approved since 1982 and the best-characterised prescription NAD+ precursor, with proven ability to raise tissue NAD+ (as shown in mitochondrial myopathy trials).",
+  "caveat": "Flushing, hepatotoxicity at sustained-release doses and lipid effects complicate chronic paediatric use, and no link between niacin dosing and BUBR1 abundance has been shown.",
+  "checks": {
+   "chembl_max_phase": 4.0,
+   "mechanisms": [],
+   "fda_applications": 8,
+   "trials_with_disease": 0,
+   "trials_any": 1597,
+   "pubmed_drug_and_gene": 0
+  }
+ },
+ {
+  "lever": "Stabilise residual BUBR1 protein through NAD+/SIRT2 regulation",
+  "drug": "Nicotinamide",
+  "why": "Widely available, approved/GRAS vitamin B3 form used chronically at gram doses (e.g. in dermatology) that efficiently replenishes NAD+ through the salvage pathway.",
+  "caveat": "Nicotinamide is itself a product-inhibitor of sirtuins including SIRT2, so it could counteract the very deacetylation step this lever depends on; the net effect on BUBR1 acetylation and stability would need direct measurement.",
+  "checks": {
+   "chembl_max_phase": 4.0,
+   "mechanisms": [],
+   "fda_applications": 0,
+   "trials_with_disease": 0,
+   "trials_any": 1613,
+   "pubmed_drug_and_gene": 3
+  }
+ },
+ {
+  "lever": "Stabilise residual BUBR1 protein through NAD+/SIRT2 regulation",
+  "drug": "Acipimox",
+  "why": "Approved (outside the US) nicotinic acid analogue with far less flushing, used in trials as a tolerable means of modulating NAD+/mitochondrial metabolism.",
+  "caveat": "Its capacity to raise intracellular NAD+ is much weaker evidenced than NR or niacin and no BUBR1 data exist, so target engagement would have to be established first.",
+  "checks": {
+   "chembl_max_phase": 4.0,
+   "mechanisms": [
+    "Unknown"
+   ],
+   "fda_applications": 0,
+   "trials_with_disease": 0,
+   "trials_any": 25,
+   "pubmed_drug_and_gene": 0
+  }
+ },
+ {
+  "lever": "Read through the premature stop codon",
+  "drug": "ataluren",
+  "why": "Oral 80S-ribosome modulator approved in the EU for nonsense-mutation Duchenne muscular dystrophy, the prototype agent for promoting readthrough of premature stop codons such as a BUB1B stop-gained allele.",
+  "caveat": "Readthrough at the specific BUB1B codon/context is untested and ataluren's own efficacy has been inconsistent in trials, so cell-based evidence of restored full-length BUB1B protein and corrected mitotic checkpoint/aneuploidy readouts would be required first.",
+  "checks": {
+   "chembl_max_phase": 4.0,
+   "mechanisms": [
+    "80S Ribosome modulator"
+   ],
+   "fda_applications": 0,
+   "trials_with_disease": 0,
+   "trials_any": 36,
+   "pubmed_drug_and_gene": 0
+  }
+ },
+ {
+  "lever": "Read through the premature stop codon",
+  "drug": "gentamicin",
+  "why": "Aminoglycoside that mispairs at premature termination codons and has produced measurable readthrough and partial protein restoration in several nonsense-mutation diseases, and is widely approved as an antibiotic.",
+  "caveat": "Nephrotoxicity and irreversible ototoxicity make chronic systemic use in a child essentially prohibitive, and readthrough levels are usually low and variant-dependent, so patient-cell dosing/response data would be needed.",
+  "checks": {
+   "chembl_max_phase": null,
+   "mechanisms": [],
+   "fda_applications": 11,
+   "trials_with_disease": 0,
+   "trials_any": 323,
+   "pubmed_drug_and_gene": 1
+  }
+ },
+ {
+  "lever": "Read through the premature stop codon",
+  "drug": "amikacin",
+  "why": "Another approved aminoglycoside with documented premature-stop-codon readthrough activity and somewhat different toxicity kinetics than gentamicin.",
+  "caveat": "Same ototoxic/nephrotoxic ceiling and unproven readthrough at this codon; any use would need ex vivo demonstration of BUB1B protein recovery plus audiologic and renal monitoring.",
+  "checks": {
+   "chembl_max_phase": 4.0,
+   "mechanisms": [
+    "Bacterial 70S ribosome inhibitor"
+   ],
+   "fda_applications": 6,
+   "trials_with_disease": 0,
+   "trials_any": 161,
+   "pubmed_drug_and_gene": 0
+  }
+ },
+ {
+  "lever": "Read through the premature stop codon",
+  "drug": "ELX-02",
+  "why": "A designed eukaryotic ribosome-selective glycoside built for readthrough with reduced oto/nephrotoxicity, tested clinically in nonsense-mutation cystic fibrosis and cystinosis.",
+  "caveat": "Investigational only (no approval, trials did not show clear clinical benefit in CF) and access would require a trial or compassionate-use pathway, with BUB1B-specific readthrough still to be demonstrated.",
+  "checks": {
+   "chembl_max_phase": 2.0,
+   "mechanisms": [
+    "80S Ribosome modulator"
+   ],
+   "fda_applications": 0,
+   "trials_with_disease": 0,
+   "trials_any": 8,
+   "pubmed_drug_and_gene": 0
+  }
+ },
+ {
+  "lever": "Read through the premature stop codon",
+  "drug": "amlexanox",
+  "why": "An approved topical anti-aphthous-ulcer drug reported to both inhibit nonsense-mediated decay and promote readthrough, potentially raising the pool of BUB1B transcript available for readthrough.",
+  "caveat": "Systemic exposure and safety for chronic oral use are not established and NMD inhibition is a broad, potentially harmful perturbation, so transcript-level and protein-level rescue in patient fibroblasts would need to be shown before any consideration.",
+  "checks": {
+   "chembl_max_phase": 4.0,
+   "mechanisms": [
+    "Phosphodiesterase 4 inhibitor"
+   ],
+   "fda_applications": 0,
+   "trials_with_disease": 0,
+   "trials_any": 5,
+   "pubmed_drug_and_gene": 0
+  }
+ },
+ {
+  "lever": "Tumour-context agents for aneuploid cells",
+  "drug": "vincristine",
+  "why": "Microtubule-destabilising agent that is the backbone of standard rhabdomyosarcoma regimens (with dactinomycin/cyclophosphamide), and a reduced-intensity version of this regimen has been reported in a BUB1B-related MVA patient with rhabdomyosarcoma (PMID 31184400).",
+  "caveat": "Only relevant if a tumour is actually documented and biopsied; spindle-assembly-checkpoint-deficient cells may respond atypically to antimitotics (slippage vs. hypersensitivity), and constitutional aneuploidy may worsen myelotoxicity and neurotoxicity, so dose tolerance and tumour response would have to be established prospectively.",
+  "checks": {
+   "chembl_max_phase": 4.0,
+   "mechanisms": [],
+   "fda_applications": 1,
+   "trials_with_disease": 0,
+   "trials_any": 1504,
+   "pubmed_drug_and_gene": 1
+  }
+ },
+ {
+  "lever": "Tumour-context agents for aneuploid cells",
+  "drug": "dactinomycin",
+  "why": "Approved component of VA/VAC rhabdomyosarcoma therapy, giving a conventional, evidence-based option should an RMS arise in this patient.",
+  "caveat": "Genotoxic mechanism raises theoretical concern about secondary malignancy and organ toxicity in a chromosomally unstable, cancer-predisposed host, so tolerability in MVA would need to be demonstrated case by case.",
+  "checks": {
+   "chembl_max_phase": null,
+   "mechanisms": [],
+   "fda_applications": 4,
+   "trials_with_disease": 0,
+   "trials_any": 83,
+   "pubmed_drug_and_gene": 2
+  }
+ },
+ {
+  "lever": "Tumour-context agents for aneuploid cells",
+  "drug": "bortezomib",
+  "why": "Approved 26S proteasome inhibitor proposed to exploit the proteotoxic/protein-folding stress of aneuploid cells, with prior phase II testing in advanced sarcoma (NCT00027716).",
+  "caveat": "The aneuploidy-vulnerability rationale is preclinical and untested in MVA-associated tumours, and sarcoma trial activity has been minimal, so tumour-specific sensitivity and paediatric tolerability would both need to be shown.",
+  "checks": {
+   "chembl_max_phase": 4.0,
+   "mechanisms": [
+    "26S proteasome inhibitor"
+   ],
+   "fda_applications": 19,
+   "trials_with_disease": 0,
+   "trials_any": 1178,
+   "pubmed_drug_and_gene": 2
+  }
+ },
+ {
+  "lever": "Tumour-context agents for aneuploid cells",
+  "drug": "temsirolimus",
+  "why": "Approved mTOR inhibitor that has been randomised in relapsed/refractory rhabdomyosarcoma in children, offering a non-genotoxic option that may suit a cancer-predisposition background.",
+  "caveat": "No MVA- or BUB1B-specific data exist, and benefit would need demonstration in the actual tumour, with attention to immunosuppression and metabolic toxicity.",
+  "checks": {
+   "chembl_max_phase": 4.0,
+   "mechanisms": [
+    "FK506-binding protein 1A inhibitor"
+   ],
+   "fda_applications": 3,
+   "trials_with_disease": 0,
+   "trials_any": 1226,
+   "pubmed_drug_and_gene": 0
+  }
+ },
+ {
+  "lever": "Tumour-context agents for aneuploid cells",
+  "drug": "trametinib",
+  "why": "Approved MEK inhibitor relevant to fusion-negative rhabdomyosarcoma with RAS-pathway mutations, which can only be assigned after tumour sequencing.",
+  "caveat": "Entirely contingent on finding an activating RAS/MAPK lesion in a tumour that may never occur, and paediatric cutaneous, ocular and cardiac toxicities require monitoring.",
+  "checks": {
+   "chembl_max_phase": 4.0,
+   "mechanisms": [
+    "Dual specificity mitogen-activated protein kinase kinase; MEK1/2 inhibitor"
+   ],
+   "fda_applications": 2,
+   "trials_with_disease": 0,
+   "trials_any": 327,
+   "pubmed_drug_and_gene": 2
+  }
+ }
+]

@@ -14,6 +14,11 @@ this patient's specific genetic defect. Use the database tools to check each lev
 Rules:
 - Ground every lever in a specific finding on the card (a variant, its type, a phenotype term).
 - State what is NOT known (for example variant phase, protein level) rather than assuming it.
+- Consider each of these generic lever types and include the ones the card supports (skip those it does not):
+  restore expression or function of the affected gene; read through a premature stop codon (only if a
+  truncating variant is present); stabilise a mutant protein (including by changing its post-translational
+  regulation, such as acetylation or ubiquitination); compensate downstream in the same pathway; and a
+  context-specific lever if the phenotype includes a tumour.
 - Do not name drugs here; levers only.
 Keep any text outside the JSON to two sentences. Return a single ```json block: a list of objects with keys
 "name", "type" (e.g. "restore function", "stabilise protein", "bypass pathway"), "rationale",

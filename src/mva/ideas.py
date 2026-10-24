@@ -29,11 +29,13 @@ def check_drug(drug: str, disease: str, gene: str) -> dict:
     fda = tools.call("drugsfda", {"name": drug})
     trials = tools.call("clinical_trials", {"query": f"{drug} AND {disease}", "max_results": 3})
     pm_gene = tools.call("pubmed_search", {"query": f"{drug} AND {gene}", "max_results": 1})
+    trials_any = tools.call("clinical_trials", {"query": drug, "max_results": 1})
     return {
         "chembl_max_phase": chembl.get("max_phase"),
         "mechanisms": chembl.get("mechanisms", []),
         "fda_applications": fda.get("n_applications"),
         "trials_with_disease": trials.get("total"),
+        "trials_any": trials_any.get("total"),
         "pubmed_drug_and_gene": pm_gene.get("total"),
     }
 
@@ -50,11 +52,11 @@ def propose(levers: list[dict], disease: str, gene: str, client=None) -> list[di
 
 
 def to_markdown(rows: list[dict]) -> str:
-    out = ["| Lever | Drug | ChEMBL phase | FDA apps | Trials (disease) | PubMed (drug+gene) | Why | Caveat |",
-           "|---|---|---|---|---|---|---|---|"]
+    out = ["| Lever | Drug | ChEMBL phase | FDA apps | Trials (all) | Trials (disease) | PubMed (drug+gene) | Why | Caveat |",
+           "|---|---|---|---|---|---|---|---|---|"]
     for r in rows:
         c = r["checks"]
         phase = "?" if c["chembl_max_phase"] is None else int(c["chembl_max_phase"])
-        out.append(f"| {r['lever']} | {r['drug']} | {phase} | {c['fda_applications']} | {c['trials_with_disease']} "
+        out.append(f"| {r['lever']} | {r['drug']} | {phase} | {c['fda_applications']} | {c['trials_any']} | {c['trials_with_disease']} "
                    f"| {c['pubmed_drug_and_gene']} | {r.get('why','')} | {r.get('caveat','')} |")
     return "\n".join(out)

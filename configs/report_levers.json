@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Stabilise residual BUBR1 protein through NAD+/SIRT2 regulation",
+    "type": "stabilise protein",
+    "rationale": "BUBR1 abundance is reported to depend on SIRT2 and NAD+ (acetylation at lysine 668). If the missense allele makes protein that is lost by turnover, raising NAD+ might protect it. Direction of effect is disputed (acetylation at lysine 250 acts the other way).",
+    "grounding": ["missense variant in the BUB1B kinase domain", "second BUB1B variant is truncating, so residual protein would come from the missense allele"],
+    "evidence": ["North et al. 2014 (PMID 24825348)", "Suematsu et al. 2014 (PMID 25285631)"],
+    "unknowns": ["whether the missense protein is made and how stable it is", "variant phase", "net effect of SIRT2 on BUBR1"],
+    "search_terms": ["NAD+ precursor", "nicotinamide", "SIRT2"]
+  },
+  {
+    "name": "Read through the premature stop codon",
+    "type": "restore function",
+    "rationale": "A truncating variant could in principle be read through by small molecules that let the ribosome continue, producing some full-length protein. Efficiency depends on codon context and on escape from nonsense-mediated decay.",
+    "grounding": ["truncating (stop-gained) BUB1B variant"],
+    "evidence": ["Dabrowski et al. 2018 (PMID 30134808)", "Gonzalez-Hilarion et al. 2012 (PMID 22938201)"],
+    "unknowns": ["second allele", "readthrough efficiency at this codon", "how much transcript survives decay"],
+    "search_terms": ["readthrough", "nonsense mutation", "nonsense-mediated decay inhibitor"]
+  },
+  {
+    "name": "Tumour-context agents for aneuploid cells",
+    "type": "context-specific",
+    "rationale": "MVA predisposes to childhood cancers including rhabdomyosarcoma. If a tumour develops, agents that exploit the stress of aneuploid cells may be relevant. The genome (germline blood) cannot show whether such a tumour exists or its genotype.",
+    "grounding": ["rhabdomyosarcoma among the phenotype terms"],
+    "evidence": ["Hanks et al. 2004 (PMID 15475955)"],
+    "unknowns": ["whether a tumour exists", "tumour genotype", "tolerance of chemotherapy in constitutional aneuploidy"],
+    "search_terms": ["proteasome inhibitor", "MEK inhibitor", "rhabdomyosarcoma"]
+  }
+]

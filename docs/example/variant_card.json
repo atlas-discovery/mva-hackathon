@@ -1,0 +1,53 @@
+{
+ "variants": [
+  {
+   "chrom": "chr15",
+   "pos": 40000100,
+   "ref": "C",
+   "alt": "T",
+   "genotype": "0/1",
+   "allele_depth": "12,11",
+   "gene": "BUB1B",
+   "transcript": "ENST00000000001",
+   "hgvsc": "c.1198C>T",
+   "hgvsp": "p.Arg400Ter",
+   "consequence": "stop_gained",
+   "impact": "HIGH",
+   "exon": "10/23",
+   "mane_select": "NM_000000.1",
+   "kind": "lof",
+   "max_af": "",
+   "clin_sig": "",
+   "sift": "",
+   "polyphen": ""
+  },
+  {
+   "chrom": "chr15",
+   "pos": 40000900,
+   "ref": "G",
+   "alt": "A",
+   "genotype": "0/1",
+   "allele_depth": "10,9",
+   "gene": "BUB1B",
+   "transcript": "ENST00000000001",
+   "hgvsc": "c.2698G>A",
+   "hgvsp": "p.Gly900Arg",
+   "consequence": "missense_variant",
+   "impact": "MODERATE",
+   "exon": "20/23",
+   "mane_select": "NM_000000.1",
+   "kind": "missense",
+   "max_af": "",
+   "clin_sig": "",
+   "sift": "",
+   "polyphen": ""
+  }
+ ],
+ "genes_with_findings": [
+  "BUB1B"
+ ],
+ "notes": [
+  "Genotype phase between variants is not known unless read-backed phasing was done.",
+  "Only HIGH/MODERATE-impact variants in the scanned gene panel are listed."
+ ]
+}

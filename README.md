@@ -51,6 +51,12 @@ mva ideas   --disease "mosaic variegated aneuploidy" --gene BUB1B
 mva run     --vcf annotated.vcf.gz --phenotype pheno.docx   # all three steps
 ```
 
+To start from the same three levers as the team's report instead of asking the model to find levers:
+
+```bash
+mva ideas --levers configs/report_levers.json --disease "mosaic variegated aneuploidy" --gene BUB1B
+```
+
 Outputs go to `out/`: `variant_card.json`, `levers.json`, `ideas.json`, `ideas.md`. Database
 responses are cached in `.cache/`, so a rerun against the same cache reproduces the database facts
 exactly. The LLM steps are not deterministic; expect the wording and some of the ideas to vary.
@@ -66,6 +72,20 @@ exactly. The LLM steps are not deterministic; expect the wording and some of the
 
 See [docs/METHODS.md](docs/METHODS.md) for the design and its limits.
 
+## Worked example
+
+`docs/example/` holds a complete run on the synthetic VCF (variant card, levers) and a run of the
+`ideas` step on `configs/report_levers.json`. The synthetic variants are invented, so the example shows
+the shape of the outputs, not findings about any patient.
+
+## AI use
+
+Levers and ideas come from Anthropic's Claude via the Anthropic API (default model `claude-opus-5-5`).
+When the API's safety classifier declines a drug-related request, the API retries it on the model it
+recommends for that category (server-side fallback, `MVA_FALLBACK=1`); the model that answered is
+printed to stderr. Plan or tier and data-handling terms: **TODO (team): fill in before making public.**
+Claude Code was also used as a coding assistant while building this repository.
+
 ## Tests
 
 ```bash
@@ -76,4 +96,5 @@ Tests use the synthetic VCF and mocked model and database calls; no network or A
 
 ## Licence
 
-MIT. Public databases are subject to their own terms of use.
+Code: MIT (see `LICENSE`). Under the hackathon rules, submissions, code and reports are also released
+under CC BY 4.0. Public databases are subject to their own terms of use.

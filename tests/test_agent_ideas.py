@@ -40,7 +40,7 @@ def test_levers_and_ideas_pipeline(monkeypatch):
     monkeypatch.setattr(tools, "call", lambda n, a: {"max_phase": 4, "n_applications": 2, "total": 7, "mechanisms": ["m"]})
     rows = ideas.propose(lv, "dis", "GENE", client=FakeClient('```json\n[{"drug": "drugx", "why": "w", "caveat": "c"}]```'))
     assert rows[0]["checks"]["chembl_max_phase"] == 4
-    assert "| L1 | drugx | 4 | 2 | 7 | 7 | w | c |" in ideas.to_markdown(rows)
+    assert "| L1 | drugx | 4 | 2 | 7 | 7 | 7 | w | c |" in ideas.to_markdown(rows)
 
 
 def test_refusal_raises_clear_error():
