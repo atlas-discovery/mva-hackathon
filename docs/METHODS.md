@@ -36,8 +36,9 @@ These are facts about the drug, not a score and not evidence that it works for t
 
 - No ranking, no scoring, no adversarial review and no systematic literature review. The table is a
   list of ideas to investigate.
-- "Approved" means ChEMBL phase 4. That includes dietary supplements and drugs withdrawn from some
-  markets; check the FDA column and the label before relying on it.
+- ChEMBL phase 4 means "approved somewhere for something". It includes drugs approved only outside the US
+  (for example ataluren) and drugs no longer marketed. The FDA column is the check for a US application;
+  read it next to the phase.
 - Zero FDA applications means none were found by name. Brand or salt-form names can be missed.
 - The model can propose drugs that are wrong for the mechanism. The databases confirm identity and
   status, not suitability.

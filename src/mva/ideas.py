@@ -6,6 +6,7 @@ The model proposes; the databases verify. The output is a plain table of ideas, 
 from __future__ import annotations
 
 import json
+import re
 
 from mva import agent, tools
 
@@ -16,8 +17,14 @@ Keep any text outside the JSON to two sentences. Return a single ```json block: 
 Do not claim efficacy; say what would need to be shown."""
 
 
+def clean_name(drug: str) -> str:
+    """'Bortezomib (low dose; probe)' -> 'Bortezomib'. Database lookups need the bare drug name."""
+    return re.split(r"\s*[(;/]", drug, maxsplit=1)[0].strip()
+
+
 def check_drug(drug: str, disease: str, gene: str) -> dict:
     """Deterministic facts about a drug, from public databases."""
+    drug = clean_name(drug)
     chembl = tools.call("chembl_drug", {"name": drug})
     fda = tools.call("drugsfda", {"name": drug})
     trials = tools.call("clinical_trials", {"query": f"{drug} AND {disease}", "max_results": 3})
@@ -37,16 +44,17 @@ def propose(levers: list[dict], disease: str, gene: str, client=None) -> list[di
         reply = agent.run(SYSTEM, f"Disease: {disease}\nGene: {gene}\nLever:\n" + json.dumps(lever, indent=1),
                           client=client)
         for c in agent.extract_json(reply):
-            rows.append({"lever": lever["name"], **c, "checks": check_drug(c["drug"], disease, gene)})
+            rows.append({"lever": lever["name"], **{**c, "drug": clean_name(c["drug"])},
+                         "checks": check_drug(c["drug"], disease, gene)})
     return rows
 
 
 def to_markdown(rows: list[dict]) -> str:
-    out = ["| Lever | Drug | Approved? | FDA apps | Trials (disease) | PubMed (drug+gene) | Why | Caveat |",
+    out = ["| Lever | Drug | ChEMBL phase | FDA apps | Trials (disease) | PubMed (drug+gene) | Why | Caveat |",
            "|---|---|---|---|---|---|---|---|"]
     for r in rows:
         c = r["checks"]
-        approved = "yes" if c["chembl_max_phase"] == 4 else ("no" if c["chembl_max_phase"] is not None else "?")
-        out.append(f"| {r['lever']} | {r['drug']} | {approved} | {c['fda_applications']} | {c['trials_with_disease']} "
+        phase = "?" if c["chembl_max_phase"] is None else int(c["chembl_max_phase"])
+        out.append(f"| {r['lever']} | {r['drug']} | {phase} | {c['fda_applications']} | {c['trials_with_disease']} "
                    f"| {c['pubmed_drug_and_gene']} | {r.get('why','')} | {r.get('caveat','')} |")
     return "\n".join(out)

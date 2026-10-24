@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 
 import anthropic
 
@@ -27,6 +28,22 @@ class RefusalError(RuntimeError):
     """The API declined to answer (stop_reason == "refusal")."""
 
 
+_FALLBACK_BETA = "server-side-fallback-2026-07-01"
+
+
+def _create(client, **kw):
+    """One model call. If the primary model's classifier declines, the API retries it on the model
+    Anthropic recommends for that refusal category (server-side fallback, beta). Disable with
+    MVA_FALLBACK=0."""
+    if config.FALLBACK and hasattr(client, "beta"):
+        resp = client.beta.messages.create(fallbacks="default", betas=[_FALLBACK_BETA], **kw)
+        if resp.model != kw["model"]:
+            print(f"[mva] request served by fallback model {resp.model} (primary {kw['model']} declined)",
+                  file=sys.stderr)
+        return resp
+    return client.messages.create(**kw)
+
+
 def _check(resp) -> None:
     if resp.stop_reason == "refusal":
         d = getattr(resp, "stop_details", None)
@@ -42,7 +59,7 @@ def run(system: str, user: str, use_tools: bool = True, client=None, max_turns: 
     if use_tools:
         kwargs["tools"] = tools.schemas()
     for _ in range(max_turns or config.MAX_TURNS):
-        resp = client.messages.create(messages=messages, **kwargs)
+        resp = _create(client, messages=messages, **kwargs)
         _check(resp)
         messages.append({"role": "assistant", "content": resp.content})
         if resp.stop_reason != "tool_use":
@@ -54,6 +71,6 @@ def run(system: str, user: str, use_tools: bool = True, client=None, max_turns: 
     # out of turns: ask for the answer with no more tool calls
     messages.append({"role": "user", "content": "Stop using tools and give your final answer now."})
     kwargs.pop("tools", None)
-    resp = client.messages.create(messages=messages, **kwargs)
+    resp = _create(client, messages=messages, **kwargs)
     _check(resp)
     return "".join(b.text for b in resp.content if b.type == "text")
