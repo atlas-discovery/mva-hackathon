@@ -65,7 +65,7 @@ exactly. The LLM steps are not deterministic; expect the wording and some of the
 | Ideas | `src/mva/ideas.py` | Claude proposes; ChEMBL, openFDA, ClinicalTrials.gov, PubMed check |
 | Tools | `src/mva/tools/` | PubMed, Open Targets, UniProt, STRING, Reactome, GTEx, ChEMBL, Drugs@FDA, ClinicalTrials.gov, MyVariant.info (opt-in) |
 
-See [docs/METHODS.md](docs/METHODS.md) for the design and its limits.
+See [docs/METHODS.md](docs/METHODS.md) for the design and its limits, and [docs/REPORT_METHODS.md](docs/REPORT_METHODS.md) for the Methods section of the team's report.
 
 ## Worked example
 
